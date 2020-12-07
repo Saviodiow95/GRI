@@ -17,15 +17,16 @@
 <body>
 <div  class="container">
     <div class="row ">
-        <h5 class="red-text">QUESTIONARIO DE SATISFAÇÃO DOS ALUNOS COM AS ANPS</h5>
+        <div class="col s12 m10 offset-s2">
+            <h5 class="red-text">QUESTIONARIO DE SATISFAÇÃO DOS ALUNOS COM AS ANPS</h5>
+            <form method="POST" >
+                {%csrf_token%}
 
-        <form method="POST" class="">
-            {%csrf_token%}
+                {% form form=form %}{% endform %}
 
-            {% form form=form %}{% endform %}
-
-            <button type="submit">Salvar</button>
-        </form>
+                <input type="submit" class="btn" value="Salvar">
+            </form>
+        </div>
     </div>
 </div>
 

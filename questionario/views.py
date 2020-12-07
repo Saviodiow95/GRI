@@ -6,6 +6,16 @@ from questionario.forms import QuestForm
 
 def quest(request):
     context = {}
-    context['form'] = QuestForm()
+
+
+    if request.method == "POST":
+        form = QuestForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            context['form'] = QuestForm(request.POST)
+    else:
+        context['form'] = QuestForm()
+
 
     return render(request,'quest_form.html',context)
