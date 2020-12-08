@@ -43,23 +43,23 @@ class Quest(models.Model):
         ('2', 'Técnico')
     )
 
-    perg['1'] ="Como as ANP's contribuíram para o seu aprendizado?"
+    perg['1'] ="Como as ANP's contribuíram para o seu aprendizado?"+TEXT_HELP
 
-    perg['2'] ="Em seu ponto de vista,o formato de aula remota que o IFNMG propôs gera conexão entre aluno e o instituto?"
+    perg['2'] ="Em seu ponto de vista,o formato de aula remota que o IFNMG propôs gera conexão entre aluno e o instituto?"+TEXT_HELP
 
-    perg['3'] ="Em seu ponto de vista,as aulas remotas foram importantes e efetivas?"
+    perg['3'] ="Em seu ponto de vista,as aulas remotas foram importantes e efetivas?"+TEXT_HELP
 
-    perg['4'] ="Avalie sua satisfação em relação às atividades remotas?"
+    perg['4'] ="Avalie sua satisfação em relação às atividades remotas?"+TEXT_HELP
 
-    perg['5'] ="Você acredita que os meios de comunicação usados pelo IFNMG neste momento de distanciamento social para compartilhar informações gerais foram eficientes?"
+    perg['5'] ="Você acredita que os meios de comunicação usados pelo IFNMG neste momento de distanciamento social para compartilhar informações gerais foram eficientes?"+TEXT_HELP
 
-    perg['6'] ="Como você classifica o conteúdo e o tipo de material que está estudando?"
+    perg['6'] ="Como você classifica o conteúdo e o tipo de material que está estudando?"+TEXT_HELP
 
-    perg['7'] ="Qual é o nível de dificuldade que você tem em estudar a distância?"
+    perg['7'] ="Qual é o nível de dificuldade que você tem em estudar a distância?"+TEXT_HELP
 
-    perg['8'] ="Quantas horas no mínimo você estuda o material disponibilizado para o seu curso?"
+    perg['8'] ="Quantas horas no mínimo você estuda o material disponibilizado para o seu curso?"+TEXT_HELP
 
-    perg['9'] ="Como você avalia o processo de orientação e acompanhamento dos professores, ao longo dos modulos? "
+    perg['9'] ="Como você avalia o processo de orientação e acompanhamento dos professores, ao longo dos modulos? "+TEXT_HELP
 
     email = models.CharField(max_length=200, verbose_name="Email", unique=True)
     nome = models.CharField(max_length=200, verbose_name="Nome Completo")
@@ -67,12 +67,12 @@ class Quest(models.Model):
     curso = models.CharField(max_length=1, choices=CURSO_CHOICE, verbose_name="Qual é o seu curso?")
     turma = models.CharField(max_length=1, choices=TURMA_CHOICE, verbose_name="Qual a sua Turma?")
 
-    pergunta1 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['1']+TEXT_HELP)
-    pergunta2 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['2']+TEXT_HELP)
-    pergunta3 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['3']+TEXT_HELP)
-    pergunta4 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['4']+TEXT_HELP)
-    pergunta5 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['5']+TEXT_HELP)
-    pergunta6 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['6']+TEXT_HELP)
-    pergunta7 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['7']+TEXT_HELP)
-    pergunta8 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['8']+TEXT_HELP)
-    pergunta9 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['9']+TEXT_HELP)
+    pergunta1 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['1'])
+    pergunta2 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['2'])
+    pergunta3 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['3'])
+    pergunta4 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['4'])
+    pergunta5 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['5'])
+    pergunta6 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['6'])
+    pergunta7 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['7'])
+    pergunta8 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['8'])
+    pergunta9 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['9'])
