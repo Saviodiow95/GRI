@@ -1,21 +1,9 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load material_form %}
 
-<!DOCTYPE html>
-<html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <title>Questionario</title>
 
-    <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <!-- Material-django CSS -->
-  {% include 'material/includes/material_css.html' %}
-
-
-</head>
-<body>
-<div  class="container">
+{% block content %}
     <div class="row ">
         <div class="col s12 m10 offset-s2">
             <h5 class="red-text">QUESTIONARIO DE SATISFAÇÃO DOS ALUNOS COM AS ANPS</h5>
@@ -28,16 +16,5 @@
             </form>
         </div>
     </div>
-</div>
 
-
-<!--JQuery-->
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
- <!-- Material-django JavaScript -->
-    {% include 'material/includes/material_js.html' %}
-
-</body>
-</html>
+{% endblock %}

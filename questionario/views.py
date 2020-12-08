@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from questionario.forms import QuestForm
+
+
+
+def obrigado(request):
+    return render(request,'obrigado.html')
 
 
 def quest(request):
@@ -12,6 +17,7 @@ def quest(request):
         form = QuestForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('obrigado')
         else:
             context['form'] = QuestForm(request.POST)
     else:
