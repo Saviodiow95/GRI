@@ -59,7 +59,7 @@ class Quest(models.Model):
 
     perg['8'] ="Quantas horas no mínimo você estuda o material disponibilizado para o seu curso?"
 
-    perg['9'] ="pergunta        9"
+    perg['9'] ="Como você avalia o processo de orientação e acompanhamento dos professores, ao longo dos modulos? "
 
     email = models.CharField(max_length=200, verbose_name="Email", unique=True)
     nome = models.CharField(max_length=200, verbose_name="Nome Completo")
