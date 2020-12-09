@@ -16,6 +16,14 @@ class Quest(models.Model):
         ('5', '5')
     )
 
+    TEMP_CHOICE =(
+        ('1', '1 hora'),
+        ('2', '2 horas'),
+        ('3', '3 horas'),
+        ('4', '4 horas'),
+        ('5', 'Mais de 4 horas')
+    )
+
     TURMA_CHOICE =(
         ('1','0120'),
         ('2','0119'),
@@ -57,13 +65,13 @@ class Quest(models.Model):
 
     perg['7'] ="Qual é o nível de dificuldade que você tem em estudar a distância?"+TEXT_HELP
 
-    perg['8'] ="Quantas horas no mínimo você estuda o material disponibilizado para o seu curso?"+TEXT_HELP
+    perg['8'] ="Quantas horas no mínimo você estuda o material disponibilizado para o seu curso?"
 
     perg['9'] ="Como você avalia o processo de orientação e acompanhamento dos professores, ao longo dos modulos? "+TEXT_HELP
 
     email = models.CharField(max_length=200, verbose_name="Email", unique=True)
     nome = models.CharField(max_length=200, verbose_name="Nome Completo")
-    grau = models.CharField(max_length=1, choices=GRAU_CHOICE, verbose_name="Estudando do Ensino ?")
+    grau = models.CharField(max_length=1, choices=GRAU_CHOICE, verbose_name="Tipo de Ensino ?")
     curso = models.CharField(max_length=1, choices=CURSO_CHOICE, verbose_name="Qual é o seu curso?")
     turma = models.CharField(max_length=1, choices=TURMA_CHOICE, verbose_name="Qual a sua Turma?")
 
@@ -74,5 +82,5 @@ class Quest(models.Model):
     pergunta5 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['5'])
     pergunta6 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['6'])
     pergunta7 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['7'])
-    pergunta8 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['8'])
+    pergunta8 = models.CharField(max_length=1, choices=TEMP_CHOICE, verbose_name=perg['8'])
     pergunta9 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['9'])
