@@ -84,3 +84,6 @@ class Quest(models.Model):
     pergunta7 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['7'])
     pergunta8 = models.CharField(max_length=1, choices=TEMP_CHOICE, verbose_name=perg['8'])
     pergunta9 = models.CharField(max_length=1, choices=RESP_CHOICE, verbose_name=perg['9'])
+
+    def __str__(self):
+        return self.email
