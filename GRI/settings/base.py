@@ -128,3 +128,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
