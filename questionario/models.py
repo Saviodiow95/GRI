@@ -63,7 +63,7 @@ class Quest(models.Model):
 
     perg['6'] ="Como você classifica o conteúdo e o tipo de material que está estudando?"+TEXT_HELP
 
-    perg['7'] ="Qual é o nível de dificuldade que você tem em estudar a distância?"+TEXT_HELP
+    perg['7'] ="Qual é o nível de dificuldade que você tem em estudar a distância? (1 para nenhuma e 5 para muita)"
 
     perg['8'] ="Quantas horas no mínimo você estuda o material disponibilizado para o seu curso?"
 
