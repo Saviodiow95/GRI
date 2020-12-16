@@ -4,9 +4,72 @@
 
 
 {% block content %}
-    <div class="row ">
+    <div class="row">
+        <div class="col">
+            Este relatorio conta com os dados do questionario realizado pelos alunos do curso de analise e desenvolvimento de sistemas,
+            que foi respondido por {{quests|length }} alunos do IFNMG - Campus Almenara
+        </div>
+    </div>
 
-        <canvas id="tempo_dif" width="200" height="200"></canvas>
+    <div class="row ">
+        <div class="col">
+            <canvas id="tempo_dif" width="500" height="500"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="striped centered">
+                <thead>
+                    <tr>
+                        <th colspan="6" class="center">
+                            Relação Tempo de Estudo x Nivel Dificuldade
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th>Nivel de Dificulde 1</th>
+                        <th>Nivel de Dificulde 2</th>
+                        <th>Nivel de Dificulde 3</th>
+                        <th>Nivel de Dificulde 4</th>
+                        <th>Nivel de Dificulde 5</th>
+                    </tr>
+                    <tr>
+                        <th>1 Hora de estudo</th>
+                    {%for qtd in list_1hora %}
+                        <td>{{qtd}}</td>
+                    {%endfor%}
+                    </tr>
+                    <tr>
+                        <th>2 Horas de estudo</th>
+                    {%for qtd in list_2horas %}
+                        <td>{{qtd}}</td>
+                    {%endfor%}
+                    </tr>
+                    <tr>
+                        <th>3 Horas de estudo</th>
+                    {%for qtd in list_3horas %}
+                        <td>{{qtd}}</td>
+                    {%endfor%}
+                    </tr>
+                    <tr>
+                        <th>4 Horas de estudo</th>
+                    {%for qtd in list_4horas %}
+                        <td>{{qtd}}</td>
+                    {%endfor%}
+                    </tr>
+                    <tr>
+                        <th>Mais de 4 Horas de estudo</th>
+                    {%for qtd in list_4horas_mais %}
+                        <td>{{qtd}}</td>
+                    {%endfor%}
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
 
     </div>
 

@@ -105,7 +105,7 @@ def rel_dif_temp(request):
             if q.pergunta7 == '5':
                 list_4horas_mais[4] += 1
 
-
+    context['quests'] = quests
     context['list_1hora'] = list_1hora
     context['list_2horas'] = list_2horas
     context['list_3horas'] = list_3horas
