@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load material_form %}
+
+
+{% block content %}
+    <div class="row ">
+
+        <canvas id="tempo_dif" width="200" height="200"></canvas>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+
+var list_1hora       =  {{list_1hora}}
+var list_2horas      = {{list_2horas}}
+var list_3horas      = {{list_3horas}}
+var list_4horas      = {{list_4horas}}
+var list_4horas_mais = {{list_4horas_mais}}
+
+
+
+var ctx = document.getElementById('tempo_dif').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['1 Hora', '2 Horas ', '3 Horas', '4 Horas', 'Mais de 4 horas'],
+        datasets: [{
+            label: 'Dificuldade nivel 1',
+
+            data: [list_1hora[0],
+                    list_2horas[0],
+                    list_3horas[0],
+                    list_4horas[0],
+                    list_4horas_mais[0]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Dificuldade nivel 2',
+
+            data: [list_1hora[1],
+                    list_2horas[1],
+                    list_3horas[1],
+                    list_4horas[1],
+                    list_4horas_mais[1]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Dificuldade nivel 3',
+
+
+            data: [list_1hora[2],
+                    list_2horas[2],
+                    list_3horas[2],
+                    list_4horas[2],
+                    list_4horas_mais[2]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Dificuldade nivel 4',
+
+            data: [list_1hora[3],
+                    list_2horas[3],
+                    list_2horas[3],
+                    list_4horas[3],
+                    list_4horas_mais[3]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Dificuldade nivel 5',
+
+            data: [list_1hora[4],
+                    list_2horas[4],
+                    list_3horas[4],
+                    list_4horas[4],
+                    list_4horas_mais[4]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }
+
+
+
+
+    ],
+
+
+
+
+
+
+
+    },
+    options: {
+
+    }
+});
+
+{% endblock %}
