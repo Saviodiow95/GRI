@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load material_form %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col">
+
+        <form method="POST" >
+            {%csrf_token%}
+
+            {% form form=form %}{% endform %}
+
+            <br><br>
+            <div class="right">
+                <a href="{% url 'quest_list' %}" class="btn red">Cancelar</a>   &ensp;
+                <input type="submit" class="btn right" value="Salvar">
+            </div>
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

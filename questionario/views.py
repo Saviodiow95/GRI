@@ -1,9 +1,43 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
+from django.views.generic import ListView
+
 from questionario.forms import QuestForm
 from questionario.models import Quest
 
+
+
+
+class QuestlList(ListView):
+    template_name = 'list_quest.html'
+    model = Quest
+
+def quest_delete(request, id):
+    quest = get_object_or_404(Quest,id=id)
+    quest.delete()
+
+    return redirect('quest_list')
+
+def quest_edit(request, id):
+    context ={}
+    quest = get_object_or_404(Quest, id=id)
+
+    if request.method == 'POST':
+        form = QuestForm(request.POST or None, request.FILES or None, instance=quest, prefix='quest')
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('quest_list')
+        else:
+            context['form'] = QuestForm(request.POST or None, request.FILES or None, instance=quest, prefix='quest')
+
+
+    else:
+        context['form'] = QuestForm(instance=quest, prefix='quest')
+
+    return render(request, 'edit_quest.html', context)
 
 def obrigado(request):
     return render(request,'obrigado.html')
@@ -25,6 +59,24 @@ def quest(request):
 
 
     return render(request,'quest_form.html',context)
+
+
+
+
+def rel_geral(request):
+    context ={}
+    quests = list(Quest.objects.all())
+    superior = list(Quest.objects.filter(grau='1'))
+    tecnico = list(Quest.objects.filter(grau='2'))
+
+    context['quests'] = quests
+    context['superior'] = superior
+    context['tecnico'] = tecnico
+
+
+    return render(request,'rel_geral.html',context)
+
+
 
 
 def rel_dif_temp(request):

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load material_form %}
+
+
+{% block content %}
+
+<div class="row">
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">
+                        <h3>Relatorio Geral</h3>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Ensino</th>
+                    <td>Superior {{superior|length }}</td>
+                    <td>Tecnico {{tecnico|length }}</td>
+                </tr>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+
+
+
+
+        </table>
+
+
+
+
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
