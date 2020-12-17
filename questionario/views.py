@@ -69,9 +69,34 @@ def rel_geral(request):
     superior = list(Quest.objects.filter(grau='1'))
     tecnico = list(Quest.objects.filter(grau='2'))
 
+    sup_ads = list(Quest.objects.filter(curso='1'))
+    sup_eng = list(Quest.objects.filter(curso='2'))
+    sup_pg = list(Quest.objects.filter(curso='3'))
+
+    tec_adm = list(Quest.objects.filter(curso='4'))
+    tec_agr = list(Quest.objects.filter(curso='5'))
+    tec_alt = list(Quest.objects.filter(curso='6'))
+    tec_inf = list(Quest.objects.filter(curso='7'))
+    tec_zoo = list(Quest.objects.filter(curso='8'))
+    tec_enf = list(Quest.objects.filter(curso='9'))
+
+
     context['quests'] = quests
     context['superior'] = superior
     context['tecnico'] = tecnico
+
+    context['qtd_ads'] = len(sup_ads)
+    context['qtd_eng'] = len(sup_eng)
+    context['qtd_pg'] = len(sup_pg)
+
+    context['qtd_adm'] = len(tec_adm)
+    context['qtd_agr'] = len(tec_agr)
+    context['qtd_alt'] = len(tec_alt)
+    context['qtd_inf'] = len(tec_inf)
+    context['qtd_zoo'] = len(tec_zoo)
+    context['qtd_enf'] = len(tec_enf)
+
+
 
 
     return render(request,'rel_geral.html',context)

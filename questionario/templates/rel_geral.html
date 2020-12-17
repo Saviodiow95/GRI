@@ -7,21 +7,37 @@
 
 <div class="row">
 
-        <table>
+        <table class="centered">
             <thead>
                 <tr>
                     <th colspan="4">
                         <h3>Relatorio Geral</h3>
                     </th>
                 </tr>
-                <tr>
-                    <th>Ensino</th>
-                    <td>Superior {{superior|length }}</td>
-                    <td>Tecnico {{tecnico|length }}</td>
-                </tr>
-
             </thead>
+
             <tbody>
+                <tr>
+                    <th colspan="4">Ensino</th>
+                </tr>
+                <tr>
+                    <td colspan="2">Numero de alunos do ensino superior {{superior|length }}</td>
+                    <td colspan="2">Numero de alunos do ensino tecnico {{tecnico|length }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+						<div class="col">
+							<canvas id="graf_superiores" width="400" height="400"></canvas>
+						</div>
+
+                    </td>
+                    <td colspan="2">
+						<div class="col">
+							<canvas id="graf_tecnicos" width="400" height="400"></canvas>
+						</div>
+
+                    </td>
+                </tr>
 
             </tbody>
 
@@ -39,5 +55,108 @@
 {% endblock %}
 
 {% block script %}
+var ctx_superiores = document.getElementById('graf_superiores').getContext('2d');
+var ctx_tecnicos = document.getElementById('graf_tecnicos').getContext('2d');
+
+
+var graficos_superios = new Chart(ctx_superiores, {
+    type: 'doughnut',
+    data: {
+		datasets: [{
+			data: [
+				{{qtd_ads}},
+				{{qtd_eng}},
+				{{qtd_pg}}
+			],
+			backgroundColor: [
+				'rgba(255, 99, 132, 1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+
+
+			],
+			label: 'Dataset 1'
+		}],
+		labels: [
+				'Análise e Desenvolvimento de Sistemas - ADS',
+				'Engenharia Agronômica',
+				'Tecnologia em Processos Gerenciais'
+			],
+
+	},
+    options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Alunos por Curso superior'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+});
+
+
+
+var grafico_tecnicos = new Chart(ctx_tecnicos, {
+    type: 'doughnut',
+    data: {
+		datasets: [{
+			data: [
+				{{qtd_adm}},
+				{{qtd_agr}},
+				{{qtd_alt}},
+				{{qtd_inf}},
+				{{qtd_zoo}},
+				{{qtd_enf}},
+			],
+			backgroundColor: [
+				'rgba(255, 99, 132, 1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+				'rgba(75, 192, 192, 1)',
+				'rgba(153, 102, 255, 1)',
+				'rgba(200, 99, 235, 1)',
+
+
+			],
+			label: 'Tecnicos'
+		}],
+		labels: [
+				'Técnico em Administração Integrado ao Ensino Médio',
+				'Técnico em Agropecuária Integrado ao Ensino Médio',
+				'Técnico Agropecuária Integrado ao Ensino Médio em Regime de Alternância',
+				'Técnico em Informática Integrado ao Ensino Médio',
+				'Técnico em Zootecnia Integrado ao Ensino Médio',
+				'Técnico em Enfermagem Subsequente',
+			],
+
+	},
+    options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Alunos por Curso superior'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+});
+
+
+
+
+
+
+
 
 {% endblock %}

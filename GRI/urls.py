@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from GRI.settings import base
-from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('questionario.urls')),
-]+ static(base.STATIC_URL, document_root=base.STATIC_ROOT)\
-              + static(base.MEDIA_URL, document_root=base.MEDIA_ROOT)
+]
