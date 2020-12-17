@@ -35,9 +35,23 @@
 						<div class="col">
 							<canvas id="graf_tecnicos" width="400" height="400"></canvas>
 						</div>
+                    </td>
+                </tr>
+				<tr>
+					<th colspan="4">Nivel de satisfação dos alunos sobre as ANPS</th>
+				</tr>
+				 <tr>
+                    <td colspan="4">
+						<div class="col">
+							<canvas id="graf_satisfacao" width="500" height="500"></canvas>
+						</div>
 
                     </td>
                 </tr>
+
+
+
+
 
             </tbody>
 
@@ -58,6 +72,12 @@
 var ctx_superiores = document.getElementById('graf_superiores').getContext('2d');
 var ctx_tecnicos = document.getElementById('graf_tecnicos').getContext('2d');
 
+var ctx_satisfacao = document.getElementById('graf_satisfacao').getContext('2d');
+
+
+var perg4_sup = {{perg4_sup}}
+var perg4_tec = {{perg4_tec}}
+
 
 var graficos_superios = new Chart(ctx_superiores, {
     type: 'doughnut',
@@ -72,8 +92,6 @@ var graficos_superios = new Chart(ctx_superiores, {
 				'rgba(255, 99, 132, 1)',
 				'rgba(54, 162, 235, 1)',
 				'rgba(255, 206, 86, 1)',
-
-
 			],
 			label: 'Dataset 1'
 		}],
@@ -152,7 +170,63 @@ var grafico_tecnicos = new Chart(ctx_tecnicos, {
 			}
 });
 
+var graf_satisfacao  = new Chart(ctx_satisfacao, {
+    type: 'bar',
+    data: {
+        labels: ['1 - Péssimo', '2 - Ruim ', '3 - Regular', '4 - Bom', '5 - Muito bom'],
+        datasets: [{
+            label: 'Alunos do Superior',
 
+            data: perg4_sup,
+
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)'
+
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Alunos do Tecnico',
+
+            data: perg4_tec,
+
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+
+            ],
+            borderColor: [
+
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        },
+    ],
+    },
+    options: {
+
+    }
+});
 
 
 

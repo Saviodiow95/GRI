@@ -69,6 +69,9 @@ def rel_geral(request):
     superior = list(Quest.objects.filter(grau='1'))
     tecnico = list(Quest.objects.filter(grau='2'))
 
+    perg4_sup  = [0, 0, 0, 0, 0]
+    perg4_tec  = [0, 0, 0, 0, 0]
+
     sup_ads = list(Quest.objects.filter(curso='1'))
     sup_eng = list(Quest.objects.filter(curso='2'))
     sup_pg = list(Quest.objects.filter(curso='3'))
@@ -79,6 +82,42 @@ def rel_geral(request):
     tec_inf = list(Quest.objects.filter(curso='7'))
     tec_zoo = list(Quest.objects.filter(curso='8'))
     tec_enf = list(Quest.objects.filter(curso='9'))
+
+
+    for q in superior:
+        if q.pergunta4 == '1':
+            perg4_sup[0] +=1
+
+        elif q.pergunta4 == '2':
+            perg4_sup[1] += 1
+
+        elif q.pergunta4 == '3':
+            perg4_sup[2] += 1
+
+        elif q.pergunta4 == '4':
+            perg4_sup[3] += 1
+
+        elif q.pergunta4 == '5':
+            perg4_sup[4] += 1
+
+    for q in tecnico:
+        if q.pergunta4 == '1':
+            perg4_tec[0] += 1
+
+        elif q.pergunta4 == '2':
+            perg4_tec[1] += 1
+
+        elif q.pergunta4 == '3':
+            perg4_tec[2] += 1
+
+        elif q.pergunta4 == '4':
+            perg4_tec[3] += 1
+
+        elif q.pergunta4 == '5':
+            perg4_tec[4] += 1
+
+
+
 
 
     context['quests'] = quests
@@ -95,6 +134,12 @@ def rel_geral(request):
     context['qtd_inf'] = len(tec_inf)
     context['qtd_zoo'] = len(tec_zoo)
     context['qtd_enf'] = len(tec_enf)
+
+
+    context['perg4_sup'] = perg4_sup
+    context['perg4_tec'] = perg4_tec
+
+
 
 
 
