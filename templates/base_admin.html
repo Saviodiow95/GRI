@@ -1,0 +1,58 @@
+{% load static %}
+{% load material_form %}
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title %}{%endblock%}</title>
+
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!-- Material-django CSS -->
+  {% include 'material/includes/material_css.html' %}
+
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+
+            <a href="#" class="brand-logo"> IFNMG</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{% url 'quest_list' %}">Lista</a></li>
+                <li><a href="{% url 'rel_geral' %}">Relatorio Geral</a></li>
+                <li><a href="{% url 'rel_dif_temp' %}">Relatorio Tempo x Dificuldade</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+
+
+
+<!--JQuery-->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+ <!-- Material-django JavaScript -->
+    {% include 'material/includes/material_js.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script>
+        {% block script %}{% endblock %}
+    </script>
+
+
+</body>
+</html>
